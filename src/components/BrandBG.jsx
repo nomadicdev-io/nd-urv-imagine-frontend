@@ -1,5 +1,5 @@
 import { StyledBrandBg } from "../styles/Global.styles";
-import bgImage from '../../public/bg.png';
+import bgImage from '../assets/images/bg.png';
 
 export default function BrandBG() {
   return (

@@ -1,4 +1,4 @@
-import { StyledButtonIcon } from "../styles/Global.styles";
+import { StyledButtonIcon, StyledButtonIconLink } from "../styles/Global.styles";
 
 const IconButton = ({children})=> {
   return (
@@ -8,4 +8,12 @@ const IconButton = ({children})=> {
   )
 }
 
-export {IconButton};
+const IconButtonLink = ({children, size, to})=> {
+  return (
+    <StyledButtonIconLink size={size} to={to}>
+      {children}
+    </StyledButtonIconLink>
+  )
+}
+
+export {IconButton, IconButtonLink};

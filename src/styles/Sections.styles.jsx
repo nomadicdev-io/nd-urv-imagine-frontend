@@ -23,6 +23,10 @@ const StyledIntroText = styled.div`
         margin: 0;
         line-height: 1.75;
 
+        @media only screen and (max-width: 767px){
+            font-size: 2.75rem;
+        }
+
         strong{
             color: var(--primary-color);
         }
@@ -48,6 +52,10 @@ const StyledSearchWrapper = styled.div`
     margin-top: 2.5em;
     display: block;
     padding: 0 5%;
+
+    @media only screen and (max-width: 767px){
+        padding: 0;
+    }
 `;
 
 const StyledSearchForm = styled.form`

@@ -24,6 +24,10 @@ const StyledNavLink = styled.a`
     width: auto;
     height: 2rem;
 
+    @media only screen and (max-width: 767px){
+        height: 1.25rem;
+    }
+
     img{
         position: relative;
         display: block;
@@ -34,8 +38,10 @@ const StyledNavLink = styled.a`
 
 const StyledNavTitle = styled.div`
     position: relative;
-    display: block;
+    display: flex;
     width: auto;
+    align-items: center;
+    grid-gap: 1.25rem;
 
     h2{
         position: relative;

@@ -1,5 +1,6 @@
 
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const StyledContainer = styled.div`
     position: relative;
@@ -19,7 +20,7 @@ const StyledContainer = styled.div`
         min-width: 90%;
     }
 
-    @media only screen and(max-width: 767px){
+    @media only screen and (max-width: 767px){
         max-width: 100%;
         min-width: 100%;
     }
@@ -43,6 +44,14 @@ const StyledBrandBg = styled.div`
         object-fit: cover;
     }
 `;
+
+const StyledMain = styled.main`
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+`
 
 const StyledButtonIcon = styled.button`
     position: relative;
@@ -69,4 +78,82 @@ const StyledButtonIcon = styled.button`
     }
 `
 
-export {StyledContainer, StyledBrandBg, StyledButtonIcon};
+const StyledButtonIconLink = styled(Link)`
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: ${(props)=> props.size == 'sm' ? '2.5rem' : '3.5rem'};
+    height: ${(props)=> props.size == 'sm' ? '2.5rem' : '3.5rem'};
+    border-radius: 0.5rem;
+    background-color: var(--primary-color);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    svg{
+        display: block;
+        width: ${(props)=> props.size == 'sm' ? '1.25rem' : '1.75rem'};
+        height: auto;
+        color: var(--bg-color);
+    }
+
+    &:hover{
+        box-shadow: -1px 4px 8px 1px #00f38a7e;
+    }
+`
+
+const StyledLoader = styled.div`
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    
+    &:before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.7;
+        background-color: var(--bg-color);
+    }
+
+    .loader_block{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 4rem;
+        height: 4rem;
+        background-color: var(--primary-color);
+        border-radius: 0.5rem;
+
+        svg{
+            width: 60%;
+            height: auto;
+            display: block;
+
+            path{
+                fill: var(--bg-color);
+            }
+        }
+    }
+`
+
+export {
+    StyledContainer, 
+    StyledBrandBg, 
+    StyledButtonIcon, 
+    StyledButtonIconLink, 
+    StyledMain,
+    StyledLoader
+};

@@ -1,6 +1,8 @@
 import { StyledHeader, StyledNavLink, StyledNavTitle, StyledNavWrapper } from "../styles/Header.styles";
-import logo from '../../public/logo.svg';
+import logo from '../assets/images/logo.svg';
 import { StyledContainer } from "../styles/Global.styles";
+import { IconButtonLink } from "./Buttons";
+import { FiImage } from "react-icons/fi";
 
 export default function Header() {
   return (
@@ -14,6 +16,10 @@ export default function Header() {
 
                 <StyledNavTitle>
                     <h2><span>AI</span> Imagine</h2>
+
+                    <IconButtonLink size={'sm'} to={'/gallery'}>
+                        <FiImage />
+                    </IconButtonLink>
                 </StyledNavTitle>
 
             </StyledNavWrapper>
