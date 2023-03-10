@@ -3,6 +3,8 @@ import { IconButton } from "./Buttons";
 import { FiArrowRight } from "react-icons/fi"
 import { getRandomPrompt } from "../utils";
 import { useState } from "react";
+import Loader from './Loader';
+import ImagePlaceholder from "./ImagePlaceholder";
 
 export default function Search() {
 
@@ -12,9 +14,34 @@ export default function Search() {
         photo: ''
     })
 
-    const SearchSubmit = (el)=> {
+    const [isLoading, setIsLoading] = useState(false);
+
+    const SearchSubmit = async (el)=> {
         el.preventDefault();
-        console.log(form)
+
+        if(form.prompt) {
+            try {
+                
+                setIsLoading(true);
+                const response = await fetch('http://localhost:8080/api/v1/dalle', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({prompt: form.prompt})
+                });
+
+                const data = await response.json();
+
+                setForm({...form, photo: `data:image/jpeg;base64, ${data.photo}`})
+
+            } catch(error) {
+                console.log(error);
+            } finally {
+                setIsLoading(false);
+            }
+        }
+
     };
 
     const handleChange = (el)=> {
@@ -38,6 +65,16 @@ export default function Search() {
             </IconButton>
 
         </StyledSearchForm>
+
+        {
+            isLoading && <Loader />
+        }
+
+        {
+            form.photo && <ImagePlaceholder url={form.photo}/>
+        }
+        
+
     </StyledSearchWrapper>
   )
 }

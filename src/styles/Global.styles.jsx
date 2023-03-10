@@ -149,11 +149,41 @@ const StyledLoader = styled.div`
     }
 `
 
+const StyledImagePlaceholder = styled.div`
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: 2.5rem;
+`
+
+const StyledImageBox = styled.div`
+    position: relative;
+    display: block;
+    width: 50%;
+    height: auto;
+    border-radius: 1.25rem;
+    overflow: hidden;
+    margin: 0 auto;
+    background-color: rgb(32 32 32);
+    border: 2px solid rgb(32 32 32);
+    
+    img{
+        position: relative;
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+`
+
 export {
     StyledContainer, 
     StyledBrandBg, 
     StyledButtonIcon, 
     StyledButtonIconLink, 
     StyledMain,
-    StyledLoader
+    StyledLoader,
+    StyledImagePlaceholder,
+    StyledImageBox
 };
